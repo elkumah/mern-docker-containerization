@@ -1,34 +1,164 @@
-# A simple MERN stack application
+# MERN Stack Containerization Project
 
-**Note** - To run this project using `docker compose`, follow the below steps.
+This project demonstrates the full-stack containerization of a MERN (MongoDB, Express, React, Node) application. The primary goal was to create a reproducible, scalable development environment using Docker and Docker Compose, eliminating the "it works on my machine" problem
 
-Switch to the `compose` branch to learn the
+## **Technical Highlights**
 
-1. Implementation of `Dockerfile` for `client` and `server`.
-2. Run the containers using `Docker Compose`.
+### **Technology Stack**
 
-## Run it local without Docker
+| Category                    | Technologies                                                 |
+| --------------------------- | ------------------------------------------------------------ |
+| **Frontend**                | React 18, Vite, Tailwind CSS, React Router, Cypress          |
+| **Backend**                 | Node.js, Express.js, REST APIs, CORS                         |
+| **Database**                | MongoDB                                                      |
+| **DevOps/Containerization** | Docker, Docker Compose, Volume Management, Custom Networking |
+| **Testing**                 | Cypress E2E Testing Framework                                |
+| **Build Tools**             | Vite, PostCSS, ESLint                                        |
 
-### Prerequisite
+## **Key Professional Competencies Demonstrated**
 
-- Install `npm`
+**Docker Containerization** - Multi-container orchestration with custom Dockerfile optimization  
+**Container Orchestration** - Docker Compose service management, networking, and volume persistence  
+**Microservices Architecture** - Isolated services with proper dependency management  
+ **Database Management** - MongoDB containerization with persistent data storage
 
-#### Start Server:
+**Infrastructure as Code** - Docker Compose configuration for reproducible environments
+
+## **Project Architecture**
 
 ```
-cd mern/server
+MERN-docker-compose/
+├── docker-compose.yaml          # Orchestration & service configuration
+├── mern/
+│   ├── backend/                 # Node.js + Express REST API
+│   │   ├── Dockerfile           # Backend container image
+│   │   ├── server.js            # Express server entry point
+│   │   ├── package.json         # Dependencies management
+│   │   ├── db/
+│   │   │   └── connection.js    # MongoDB connection logic
+│   │   └── routes/
+│   │       └── record.js        # API routes & CRUD operations
+│   │
+│   └── frontend/                # React + Vite SPA
+│       ├── Dockerfile           # Frontend container image
+│       ├── package.json         # React dependencies
+│       ├── vite.config.js       # Vite bundler configuration
+│       ├── tailwind.config.js   # Tailwind CSS customization
+│       ├── cypress.json         # E2E testing configuration
+│       ├── src/
+│       │   ├── App.jsx          # Main React component
+│       │   ├── components/      # Reusable React components
+│       │   │   ├── Navbar.jsx   # Navigation component
+│       │   │   ├── Record.jsx   # Record display component
+│       │   │   └── RecordList.jsx # List management component
+│       │   └── main.jsx         # React entry point
+│       └── cypress/             # E2E test suite
+│           └── integration/
+│               └── endToEnd.spec.js
+```
+
+## **Container Services**
+
+| Service      | Port  | Environment    | Purpose                                  |
+| ------------ | ----- | -------------- | ---------------------------------------- |
+| **backend**  | 5050  | Docker Network | Express REST API server                  |
+| **frontend** | 5173  | Docker Network | React Vite development/production server |
+| **mongodb**  | 27017 | Docker Network | NoSQL database with persistent volumes   |
+
+## **Quick Start Guide**
+
+### **Prerequisites**
+
+- Docker & Docker Compose installed
+- Git
+
+### **Installation & Running**
+
+1. **Clone and navigate to project:**
+
+   ```bash
+   cd MERN-docker-compose
+   ```
+
+2. **Start all services:**
+
+   ```bash
+   docker compose up -d
+   ```
+
+3. **Access applications:**
+   - Frontend: http://localhost:5173
+   - API: http://localhost:5050
+   - MongoDB: mongodb://localhost:27017
+
+4. **View logs:**
+
+   ```bash
+   docker compose logs -f
+   ```
+
+5. **Stop services:**
+   ```bash
+   docker compose down
+   ```
+
+### **Local Development (Without Docker)**
+
+If you prefer running locally:
+
+**Backend:**
+
+```bash
+cd mern/backend
 npm install
 npm start
 ```
 
-#### Start Client
+**Frontend:**
 
-```
-cd mern/client
+```bash
+cd mern/frontend
 npm install
 npm run dev
 ```
 
-<img width="1790" alt="Screenshot 2024-08-31 at 11 07 58 PM" src="https://github.com/user-attachments/assets/f414230b-8bd6-4393-b8de-6a10444a8dfd">
-# mern-docker-containerization
-# mern-docker-containerization
+## **Running Tests**
+
+**Execute Cypress E2E tests:**
+
+```bash
+cd mern/frontend
+npm run cypress
+```
+
+## **Development Commands**
+
+| Command                                    | Purpose                            |
+| ------------------------------------------ | ---------------------------------- |
+| `docker compose up -d`                     | Start all services in background   |
+| `docker compose logs -f`                   | Stream logs from all services      |
+| `docker compose exec backend npm start`    | Restart backend service            |
+| `docker compose exec frontend npm run dev` | Rebuild frontend                   |
+| `docker compose down -v`                   | Stop all services & remove volumes |
+
+## **Learning Outcomes & Benefits**
+
+This project demonstrates practical expertise in:
+
+- **DevOps Best Practices** - Container orchestration, networking, persistence
+- **Scalability** - Containerized architecture ready for cloud deployment
+- **Reproducibility** - Consistent environments across development, testing, and production
+- **Professional Workflow** - Docker best practices, service isolation, data persistence
+
+## **Deployment Ready**
+
+This project can be easily deployed to:
+
+- Docker Swarm
+- Kubernetes clusters
+- Cloud platforms (AWS ECS, Google Cloud Run, Azure Container Instances)
+- Development/staging/production environments with minimal configuration changes
+
+---
+
+**Created:** February 2026 | **Status:** Production Ready | **License:** ISC
