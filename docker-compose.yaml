@@ -1,6 +1,8 @@
+# Docker Compose file for MERN stack application
 services:
   backend:
     build: mern/backend
+    image: efkumah/mern-backend #Pulls from Docker Hub
     ports:
       - "5050:5050"
     networks:
@@ -8,8 +10,9 @@ services:
     depends_on:
       - mongodb
 
-  frontend:
+  frontend: # Frontend service
     build: mern/frontend
+    image: efkumah/mern-frontend #Pulls from Docker Hub
     ports:
       - "5173:5173"
     networks:

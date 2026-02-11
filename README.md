@@ -77,13 +77,14 @@ MERN-docker-compose/
 1. **Clone and navigate to project:**
 
    ```bash
-   cd MERN-docker-compose
+   git clone https://github.com/your-username/mern-containerization-project.git
+   cd mern-containerization-project
    ```
 
 2. **Start all services:**
 
    ```bash
-   docker compose up -d
+   docker-compose up -d --build
    ```
 
 3. **Access applications:**
@@ -122,8 +123,6 @@ npm install
 npm run dev
 ```
 
-
-
 ## **Development Commands**
 
 | Command                                    | Purpose                            |
@@ -134,7 +133,6 @@ npm run dev
 | `docker compose exec frontend npm run dev` | Rebuild frontend                   |
 | `docker compose down -v`                   | Stop all services & remove volumes |
 
-
 ## **Deployment Ready**
 
 This project can be easily deployed to:
@@ -143,5 +141,3 @@ This project can be easily deployed to:
 - Kubernetes clusters
 - Cloud platforms (AWS ECS, Google Cloud Run, Azure Container Instances)
 - Development/staging/production environments with minimal configuration changes
-
-
