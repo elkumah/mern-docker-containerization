@@ -122,14 +122,7 @@ npm install
 npm run dev
 ```
 
-## **Running Tests**
 
-**Execute Cypress E2E tests:**
-
-```bash
-cd mern/frontend
-npm run cypress
-```
 
 ## **Development Commands**
 
@@ -141,14 +134,6 @@ npm run cypress
 | `docker compose exec frontend npm run dev` | Rebuild frontend                   |
 | `docker compose down -v`                   | Stop all services & remove volumes |
 
-## **Learning Outcomes & Benefits**
-
-This project demonstrates practical expertise in:
-
-- **DevOps Best Practices** - Container orchestration, networking, persistence
-- **Scalability** - Containerized architecture ready for cloud deployment
-- **Reproducibility** - Consistent environments across development, testing, and production
-- **Professional Workflow** - Docker best practices, service isolation, data persistence
 
 ## **Deployment Ready**
 
@@ -159,6 +144,4 @@ This project can be easily deployed to:
 - Cloud platforms (AWS ECS, Google Cloud Run, Azure Container Instances)
 - Development/staging/production environments with minimal configuration changes
 
----
 
-**Created:** February 2026 | **Status:** Production Ready | **License:** ISC
